@@ -1,6 +1,6 @@
 // Service worker: приложение открывается и работает без интернета.
 // При выпуске новой версии меняем CACHE — телефон скачает свежие файлы.
-const CACHE = 'tarelochka-v1';
+const CACHE = 'tarelochka-v2';
 const CORE = ['./', './index.html', './styles.css', './app.js', './icons.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png'];
 

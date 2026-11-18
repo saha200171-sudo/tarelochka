@@ -42,6 +42,8 @@ const FOOD_ICONS = [
     svg: `<path d="M32 8c-8 0-10 12-14 20-3 6-4 10-4 14 0 9 8 15 18 15s18-6 18-15c0-4-1-8-4-14-4-8-6-20-14-20z" fill="${C.leafDark}"/><path d="M32 13c-6 0-8 10-11 17-2 5-3 8-3 12 0 7 6 11 14 11s14-4 14-11c0-4-1-7-3-12-3-7-5-17-11-17z" fill="#E3EBA8" stroke="none"/><circle cx="32" cy="40" r="7" fill="#B9845A"/>` },
   { id: 'peach', name: 'Персик', cat: 'Фрукты', keys: ['персик', 'абрикос', 'нектарин', 'слив', 'хурм'],
     svg: `<path d="M32 22c-4-3-18-2-18 14 0 11 8 18 18 18s18-7 18-18c0-16-14-17-18-14z" fill="${C.peach}"/><path d="M32 22c-3 7-3 14 0 22" fill="none" opacity=".5"/><path d="M33 20c2-5 7-8 12-7-1 5-6 8-12 7z" fill="${C.leaf}"/>` },
+  { id: 'pomegranate', name: 'Гранат', cat: 'Фрукты', keys: ['гранат'],
+    svg: `<path d="M25 22l-2-8 5 3 4-6 4 6 5-3-2 8z" fill="#C9545F"/><path d="M32 20c-11 0-18 7-18 17s8 18 18 18 18-8 18-18-7-17-18-17z" fill="#DE6670"/><path d="M21 35c0-5 3-8 6-9" fill="none" stroke="#fff" opacity=".8"/><g fill="#F7B8BE" stroke="none"><circle cx="38" cy="42" r="1.4"/><circle cx="42" cy="37" r="1.4"/><circle cx="35" cy="47" r="1.4"/></g>` },
   { id: 'kiwi', name: 'Киви', cat: 'Фрукты', keys: ['киви'],
     svg: `<circle cx="32" cy="32" r="20" fill="#B48A64"/><circle cx="32" cy="32" r="16" fill="#B5D48A" stroke="none"/><circle cx="32" cy="32" r="5" fill="#F3F6D8" stroke="none"/><g fill="${C.ink}" stroke="none"><circle cx="32" cy="22" r="1"/><circle cx="41" cy="27" r="1"/><circle cx="41" cy="37" r="1"/><circle cx="32" cy="42" r="1"/><circle cx="23" cy="37" r="1"/><circle cx="23" cy="27" r="1"/></g>` },
   { id: 'pineapple', name: 'Ананас', cat: 'Фрукты', keys: ['ананас', 'манго', 'тропич'],
