@@ -1,5 +1,6 @@
 // Тарелочка — дневник питания. Все данные хранятся в localStorage этого телефона.
 
+const APP_VERSION = '4';
 const STORE_KEY = 'tarelochka.v1';
 const MEALS = [
   { id: 'breakfast', name: 'Завтрак',  color: '#FCE7C8', glyph: '<circle cx="12" cy="14" r="4"/><path d="M12 5v2M5 14H3M21 14h-2M7 9 5.6 7.6M17 9l1.4-1.4M4 18h16"/>' },
@@ -283,7 +284,10 @@ $('picker').addEventListener('click', e => {
 $('pickerClose').onclick = () => { $('pickerBackdrop').hidden = true; };
 $('pickerBackdrop').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.hidden = true; });
 
-$('menuBtn').onclick = () => { $('menuBackdrop').hidden = false; };
+$('menuBtn').onclick = () => {
+  $('appVersion').textContent = `Версия ${APP_VERSION} · иллюстраций: ${FOOD_ICONS.length}`;
+  $('menuBackdrop').hidden = false;
+};
 $('menuClose').onclick = () => { $('menuBackdrop').hidden = true; };
 $('menuBackdrop').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.hidden = true; });
 $('exportBtn').onclick = exportData;
@@ -323,6 +327,21 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) rend
 
 render();
 
+// Обновления: при каждом возвращении в приложение проверяем, не вышла ли новая версия.
+// Если вышла — новый service worker берёт управление, и страница сама перезагружается.
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  const hadController = !!navigator.serviceWorker.controller;
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hadController || reloading) return;
+    // не перезагружаем посреди ввода записи — дождёмся закрытия окна
+    const tryReload = () => {
+      if (!$('sheetBackdrop').hidden || !$('pickerBackdrop').hidden || document.activeElement === $('dayNote')) return setTimeout(tryReload, 1500);
+      reloading = true; location.reload();
+    };
+    tryReload();
+  });
+  navigator.serviceWorker.register('sw.js').then(reg => {
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) reg.update().catch(() => {}); });
+  }).catch(() => {});
 }

@@ -208,3 +208,4 @@ svg { display: block; }
   background: var(--ink); color: #fff; padding: 11px 18px; border-radius: 999px; font-weight: 700; font-size: 15px;
   animation: fade .2s;
 }
+.version { text-align: center; margin: 14px 0 0; font-size: 14px; }

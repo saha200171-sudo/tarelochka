@@ -1,6 +1,6 @@
 // Service worker: приложение открывается и работает без интернета.
 // При выпуске новой версии меняем CACHE — телефон скачает свежие файлы.
-const CACHE = 'tarelochka-v3';
+const CACHE = 'tarelochka-v4';
 const CORE = ['./', './index.html', './styles.css', './app.js', './icons.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png'];
 
@@ -24,7 +24,7 @@ self.addEventListener('fetch', e => {
   // (если сеть медленная — через 3 с отдаём копию, чтобы приложение не «висело»)
   if (url.origin === location.origin) {
     const fromCache = () => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('./index.html'));
-    const net = fetch(req).then(res => {
+    const net = fetch(req, { cache: 'no-cache' }).then(res => {
       if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
       return res;
     });
