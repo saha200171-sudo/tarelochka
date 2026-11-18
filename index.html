@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Тарелочка</title>
+<meta name="theme-color" content="#FBF6EE">
+<meta name="description" content="Дневник питания с милыми иллюстрациями">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div class="top-row">
+      <button class="month-btn" id="monthLabel" type="button"></button>
+      <div class="top-actions">
+        <button class="chip-btn" id="todayBtn" type="button">Сегодня</button>
+        <button class="icon-btn" id="menuBtn" type="button" aria-label="Меню">
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="week" id="week"></div>
+  </header>
+
+  <main id="dayView" class="view">
+    <h1 class="day-title" id="dayTitle"></h1>
+    <div id="meals"></div>
+    <section class="card note-card">
+      <div class="card-head"><h2>Заметка дня</h2></div>
+      <textarea id="dayNote" rows="2" placeholder="Самочувствие, вода, настроение…"></textarea>
+    </section>
+  </main>
+
+  <main id="monthView" class="view" hidden>
+    <div class="month-nav">
+      <button class="icon-btn" id="prevMonth" type="button" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h1 id="monthTitle"></h1>
+      <button class="icon-btn" id="nextMonth" type="button" aria-label="Следующий месяц"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="month-grid-head"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+    <div class="month-grid" id="monthGrid"></div>
+  </main>
+
+  <nav class="tabs">
+    <button type="button" class="tab active" data-view="day">
+      <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>День
+    </button>
+    <button type="button" class="fab" id="fab" aria-label="Добавить">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button type="button" class="tab" data-view="month">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Месяц
+    </button>
+  </nav>
+</div>
+
+<!-- Окно добавления / редактирования -->
+<div class="sheet-backdrop" id="sheetBackdrop" hidden>
+  <form class="sheet" id="sheet" autocomplete="off">
+    <div class="sheet-grip"></div>
+    <h2 id="sheetTitle">Что ты съела?</h2>
+    <input id="foodText" class="field" type="text" placeholder="Например: макароны с сыром" enterkeyhint="done">
+    <div class="sugg-head">
+      <span>Иллюстрация</span>
+      <button type="button" class="link-btn" id="allIconsBtn">Все иллюстрации</button>
+    </div>
+    <div class="sugg" id="sugg"></div>
+    <div class="meal-chips" id="mealChips"></div>
+    <input id="foodNote" class="field small" type="text" placeholder="Комментарий: порция, время… (необязательно)">
+    <div class="sheet-actions">
+      <button type="button" class="btn ghost danger" id="deleteBtn" hidden>Удалить</button>
+      <button type="button" class="btn ghost" id="cancelBtn">Отмена</button>
+      <button type="submit" class="btn primary" id="saveBtn">Сохранить</button>
+    </div>
+  </form>
+</div>
+
+<!-- Каталог всех иллюстраций -->
+<div class="sheet-backdrop" id="pickerBackdrop" hidden>
+  <div class="sheet tall">
+    <div class="sheet-grip"></div>
+    <div class="picker-head">
+      <h2>Иллюстрации</h2>
+      <button type="button" class="icon-btn" id="pickerClose" aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <input id="pickerSearch" class="field" type="search" placeholder="Поиск: яблоко, суп, кофе…">
+    <div class="picker" id="picker"></div>
+  </div>
+</div>
+
+<!-- Меню -->
+<div class="sheet-backdrop" id="menuBackdrop" hidden>
+  <div class="sheet">
+    <div class="sheet-grip"></div>
+    <h2>Данные</h2>
+    <p class="muted">Записи хранятся только на этом телефоне. Время от времени сохраняй резервную копию в файл.</p>
+    <button type="button" class="menu-item" id="exportBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 19h14"/></svg>Сохранить копию в файл
+    </button>
+    <button type="button" class="menu-item" id="importBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 15V4M7 9l5-5 5 5M5 19h14"/></svg>Загрузить из файла
+    </button>
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
+    <button type="button" class="btn ghost wide" id="menuClose">Закрыть</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="icons.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
