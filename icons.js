@@ -37,17 +37,17 @@ const FOOD_ICONS = [
     svg: `<path d="M32 16c-5 0-7 5-7 10 0 4-9 8-9 18 0 8 7 12 16 12s16-4 16-12c0-10-9-14-9-18 0-5-2-10-7-10z" fill="#C8DB8A"/><path d="M32 16c0-3 0-5 2-8" fill="none"/><path d="M34 12c3-3 7-3 9-2-2 3-6 4-9 2z" fill="${C.leaf}"/>` },
   { id: 'orange', name: 'Апельсин', cat: 'Фрукты', keys: ['апельсин', 'мандарин', 'грейпфрут', 'цитрус', 'клементин'],
     svg: `<circle cx="32" cy="36" r="18" fill="${C.orange}"/><path d="M32 18c-1-3 0-6 2-8" fill="none"/><path d="M33 14c3-4 9-4 11-2-3 4-8 5-11 2z" fill="${C.leaf}"/><g fill="#E8964A" stroke="none"><circle cx="24" cy="32" r="1.3"/><circle cx="38" cy="43" r="1.3"/><circle cx="29" cy="46" r="1.3"/><circle cx="41" cy="31" r="1.3"/></g>` },
-  { id: 'strawberry', name: 'Клубника', cat: 'Фрукты', keys: ['клубни', 'земляни', 'ягод'],
+  { id: 'strawberry', name: 'Клубника', cat: 'Ягоды', keys: ['клубни', 'земляни', 'ягод'],
     svg: `<path d="M32 54c-10-6-17-15-17-24 0-6 6-9 17-9s17 3 17 9c0 9-7 18-17 24z" fill="${C.red}"/><path d="M20 21c4 2 8 1 12-3 4 4 8 5 12 3-2 5-7 6-12 4-5 2-10 1-12-4z" fill="${C.leaf}"/><path d="M32 18v-6" fill="none"/><g fill="#FBE7B5" stroke="none"><ellipse cx="25" cy="32" rx="1.2" ry="1.8"/><ellipse cx="33" cy="30" rx="1.2" ry="1.8"/><ellipse cx="40" cy="33" rx="1.2" ry="1.8"/><ellipse cx="29" cy="40" rx="1.2" ry="1.8"/><ellipse cx="37" cy="41" rx="1.2" ry="1.8"/><ellipse cx="33" cy="48" rx="1.2" ry="1.8"/></g>` },
-  { id: 'blueberry', name: 'Черника', cat: 'Фрукты', keys: ['черник', 'голубик', 'смородин', 'ежевик'],
+  { id: 'blueberry', name: 'Черника', cat: 'Ягоды', keys: ['черник', 'голубик', 'смородин', 'ежевик'],
     svg: `<g fill="#8E9BD0"><circle cx="22" cy="38" r="9"/><circle cx="41" cy="40" r="9"/><circle cx="32" cy="24" r="9"/></g><g fill="none"><path d="M20 35l2 2 2-2M39 37l2 2 2-2M30 21l2 2 2-2"/></g>` },
-  { id: 'grapes', name: 'Виноград', cat: 'Фрукты', keys: ['виноград', 'изюм'],
+  { id: 'grapes', name: 'Виноград', cat: 'Ягоды', keys: ['виноград', 'изюм'],
     svg: `<g fill="${C.lilac}"><circle cx="32" cy="48" r="6"/><circle cx="26" cy="38" r="6"/><circle cx="38" cy="38" r="6"/><circle cx="20" cy="28" r="6"/><circle cx="32" cy="28" r="6"/><circle cx="44" cy="28" r="6"/></g><path d="M32 22v-9" fill="none"/><path d="M33 15c4-4 10-3 12-1-3 4-9 4-12 1z" fill="${C.leaf}"/>` },
   { id: 'watermelon', name: 'Арбуз', cat: 'Фрукты', keys: ['арбуз'],
     svg: `<path d="M8 26h48c0 14-11 24-24 24S8 40 8 26z" fill="${C.leafDark}"/><path d="M13 26h38c0 11-8 19-19 19S13 37 13 26z" fill="#F29B9B"/><g fill="${C.ink}" stroke="none"><ellipse cx="24" cy="32" rx="1.3" ry="2"/><ellipse cx="32" cy="37" rx="1.3" ry="2"/><ellipse cx="40" cy="32" rx="1.3" ry="2"/></g>` },
   { id: 'lemon', name: 'Лимон', cat: 'Фрукты', keys: ['лимон', 'лайм'],
     svg: `<path d="M8 34c4-1 5-4 8-8 5-6 11-8 16-8s11 2 16 8c3 4 4 7 8 8-4 1-5 4-8 8-5 6-11 8-16 8s-11-2-16-8c-3-4-4-7-8-8z" fill="#F7E07C"/><path d="M22 28c2-2 5-3 8-3" fill="none" stroke="#fff" opacity=".8"/>` },
-  { id: 'cherry', name: 'Вишня', cat: 'Фрукты', keys: ['вишн', 'черешн'],
+  { id: 'cherry', name: 'Вишня', cat: 'Ягоды', keys: ['вишн', 'черешн'],
     svg: `<path d="M22 36c2-10 8-18 14-23M42 38c-1-10-3-18-6-25" fill="none"/><circle cx="22" cy="44" r="9" fill="${C.berry}"/><circle cx="42" cy="46" r="9" fill="${C.berry}"/><path d="M36 13c4-3 10-2 13 0-4 4-9 4-13 0z" fill="${C.leaf}"/>` },
   { id: 'avocado', name: 'Авокадо', cat: 'Фрукты', keys: ['авокадо', 'гуакамол'],
     svg: `<path d="M32 8c-8 0-10 12-14 20-3 6-4 10-4 14 0 9 8 15 18 15s18-6 18-15c0-4-1-8-4-14-4-8-6-20-14-20z" fill="${C.leafDark}"/><path d="M32 13c-6 0-8 10-11 17-2 5-3 8-3 12 0 7 6 11 14 11s14-4 14-11c0-4-1-7-3-12-3-7-5-17-11-17z" fill="#E3EBA8" stroke="none"/><circle cx="32" cy="40" r="7" fill="#B9845A"/>` },
@@ -89,8 +89,10 @@ const FOOD_ICONS = [
     svg: bowl(`<path d="M12 32c0-8 9-14 20-14s20 6 20 14z" fill="${C.butter}"/><path d="M17 28c3-3 5 3 8 0s5 3 8 0 5 3 8 0 4 2 6 0M21 23c3-3 5 3 8 0s5 3 8 0 4 2 5 0" fill="none"/><path d="M40 20c2-2 5-2 6 0-1 2-4 2-6 0z" fill="${C.leaf}"/>`) },
   { id: 'rice', name: 'Рис', cat: 'Гарниры', keys: ['рис', 'плов', 'ризотто', 'булгур', 'кускус', 'киноа'],
     svg: `<path d="M44 6L32 26M51 9L37 27" fill="none"/>` + bowl(`<path d="M12 32c0-8 9-13 20-13s20 5 20 13z" fill="${C.cream}"/><path d="M22 26l2 1M30 23l2 1M38 26l2 1M27 29l2 1M44 29l1 1M18 30l1 1" fill="none"/>`) },
-  { id: 'porridge', name: 'Каша', cat: 'Гарниры', keys: ['каш', 'овсян', 'гречк', 'гречн', 'манк', 'пшен', 'гранол', 'мюсли', 'хлопь'],
+  { id: 'porridge', name: 'Каша', cat: 'Гарниры', keys: ['каш', 'овсян', 'манк', 'пшен', 'гранол', 'мюсли', 'хлопь'],
     svg: `<ellipse cx="32" cy="32" rx="22" ry="5" fill="#F1DDB5"/><g stroke="none"><circle cx="26" cy="31" r="2.6" fill="${C.lilac}"/><circle cx="33" cy="30" r="2.6" fill="${C.berry}"/><circle cx="39" cy="32" r="2.6" fill="${C.lilac}"/></g><path d="M44 30L54 12" fill="none"/>` + bowl('') },
+  { id: 'buckwheat', name: 'Гречка', cat: 'Гарниры', keys: ['гречк', 'гречн', 'гречих', 'ядриц'],
+    svg: bowl(`<path d="M12 32c0-8 9-13 20-13s20 5 20 13z" fill="#A9744E"/><g fill="#D2A57C" stroke="none"><ellipse cx="20" cy="29" rx="1.6" ry="1.1"/><ellipse cx="26" cy="25" rx="1.6" ry="1.1"/><ellipse cx="25" cy="30" rx="1.6" ry="1.1"/><ellipse cx="33" cy="28" rx="1.6" ry="1.1"/><ellipse cx="40" cy="25" rx="1.6" ry="1.1"/><ellipse cx="44" cy="30" rx="1.6" ry="1.1"/><ellipse cx="37" cy="31" rx="1.6" ry="1.1"/></g><rect x="29" y="18" width="8" height="6" rx="1.5" fill="#FBE38A"/>`) },
   { id: 'bread', name: 'Хлеб', cat: 'Выпечка', keys: ['хлеб', 'батон', 'булк', 'булоч', 'багет', 'лаваш'],
     svg: `<path d="M10 40c0-12 10-18 22-18s22 6 22 18v8c0 3-2 5-5 5H15c-3 0-5-2-5-5z" fill="${C.crust}"/><path d="M22 30l4 6M31 28l4 6M40 30l4 6" fill="none"/>` },
   { id: 'toast', name: 'Тост', cat: 'Выпечка', keys: ['тост', 'гренк', 'хлебц', 'крекер'],
@@ -182,7 +184,7 @@ const FOOD_ICONS = [
     svg: `<ellipse cx="31" cy="34" rx="22" ry="16" fill="#F2DA8A"/><path d="M17 23c4 6 4 16 0 22M25 19c3 8 3 22 0 30M37 19c-3 8-3 22 0 30M45 23c-4 6-4 16 0 22" fill="none" opacity=".4"/><path d="M53 34l5-3" fill="none"/>` },
   { id: 'mango', name: 'Манго', cat: 'Фрукты', keys: ['манго'],
     svg: `<path d="M22 16c-2-5 1-9 6-10 1 5-2 9-6 10z" fill="${C.leaf}"/><path d="M20 17c10-6 28 0 30 16 2 14-8 23-20 21-10-2-16-10-16-20 0-8 1-13 6-17z" fill="#F7C25A"/><path d="M40 24c5 5 6 12 4 19" fill="none" stroke="#EE8A5A" stroke-width="5" opacity=".45"/><path d="M20 28c0-4 2-7 5-8" fill="none" stroke="#fff" opacity=".75"/>` },
-  { id: 'raspberry', name: 'Малина', cat: 'Фрукты', keys: ['малин'],
+  { id: 'raspberry', name: 'Малина', cat: 'Ягоды', keys: ['малин'],
     svg: `<g fill="#E8708A"><circle cx="26" cy="30" r="5"/><circle cx="32" cy="30" r="5"/><circle cx="38" cy="30" r="5"/><circle cx="23" cy="37" r="5"/><circle cx="29" cy="37" r="5"/><circle cx="35" cy="37" r="5"/><circle cx="41" cy="37" r="5"/><circle cx="26" cy="44" r="5"/><circle cx="32" cy="44" r="5"/><circle cx="38" cy="44" r="5"/><circle cx="32" cy="50" r="5"/></g><path d="M21 27c3-4 7-4 11-2 4-2 8-2 11 2-4 1-7 1-11 0-4 1-7 1-11 0z" fill="${C.leaf}"/><path d="M32 25v-7" fill="none"/>` },
   { id: 'fig', name: 'Инжир', cat: 'Фрукты', keys: ['инжир', 'смокв'],
     svg: `<path d="M32 12c-2 0-3 2-3 5-8 4-15 12-15 22 0 9 8 15 18 15s18-6 18-15c0-10-7-18-15-22 0-3-1-5-3-5z" fill="#8E6A9E"/><path d="M32 25c-7 3-11 8-11 14 0 6 5 10 11 10s11-4 11-10c0-6-4-11-11-14z" fill="#F1A0A8" stroke="none"/><g fill="#FBEFD9" stroke="none"><circle cx="28" cy="36" r="1.1"/><circle cx="35" cy="34" r="1.1"/><circle cx="31" cy="41" r="1.1"/><circle cx="37" cy="41" r="1.1"/><circle cx="27" cy="43" r="1.1"/><circle cx="33" cy="46" r="1.1"/></g>` },
@@ -252,11 +254,11 @@ function suggestIcons(text, limit = 8) {
     FOOD_ICONS.forEach(icon => {
       let best = 0;
       for (const k of icon._keys) {
-        if (w === k) best = Math.max(best, 10);
+        if (w === k) best = Math.max(best, 8.5);
         else if (k.length >= 2 && w.startsWith(k)) best = Math.max(best, 6 + Math.min(k.length, 10) * 0.3);
-        else if (w.length >= 2 && k.startsWith(w)) best = Math.max(best, isLast ? 5 + w.length : 3);
+        else if (w.length >= 2 && k.startsWith(w)) best = Math.max(best, isLast ? 5 + Math.min(w.length, 3) : 3);
       }
-      if (best) scores.set(icon, Math.max(scores.get(icon) || 0, best) + (words.length - wi) * 0.01);
+      if (best) scores.set(icon, Math.max(scores.get(icon) || 0, best) + (words.length - wi) * 1.5);
     });
   });
   return [...scores.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit).map(e => e[0]);

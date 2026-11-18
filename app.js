@@ -1,6 +1,6 @@
 // Тарелочка — дневник питания. Все данные хранятся в localStorage этого телефона.
 
-const APP_VERSION = '4';
+const APP_VERSION = '5';
 const STORE_KEY = 'tarelochka.v1';
 const MEALS = [
   { id: 'breakfast', name: 'Завтрак',  color: '#FCE7C8', glyph: '<circle cx="12" cy="14" r="4"/><path d="M12 5v2M5 14H3M21 14h-2M7 9 5.6 7.6M17 9l1.4-1.4M4 18h16"/>' },
