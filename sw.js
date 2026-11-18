@@ -1,5 +1,5 @@
-﻿// Service worker: РїСЂРёР»РѕР¶РµРЅРёРµ РѕС‚РєСЂС‹РІР°РµС‚СЃСЏ Рё СЂР°Р±РѕС‚Р°РµС‚ Р±РµР· РёРЅС‚РµСЂРЅРµС‚Р°.
-// РџСЂРё РІС‹РїСѓСЃРєРµ РЅРѕРІРѕР№ РІРµСЂСЃРёРё РјРµРЅСЏРµРј CACHE вЂ” С‚РµР»РµС„РѕРЅ СЃРєР°С‡Р°РµС‚ СЃРІРµР¶РёРµ С„Р°Р№Р»С‹.
+// Service worker: приложение открывается и работает без интернета.
+// При выпуске новой версии меняем CACHE — телефон скачает свежие файлы.
 const CACHE = 'tarelochka-v3';
 const CORE = ['./', './index.html', './styles.css', './app.js', './icons.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png'];
@@ -20,8 +20,8 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
-  // РЎРІРѕРё С„Р°Р№Р»С‹: СЃРЅР°С‡Р°Р»Р° СЃРµС‚СЊ (С‡С‚РѕР±С‹ РѕР±РЅРѕРІР»РµРЅРёСЏ РїСЂРёС…РѕРґРёР»Рё), Р±РµР· СЃРµС‚Рё вЂ” СЃРѕС…СЂР°РЅС‘РЅРЅР°СЏ РєРѕРїРёСЏ
-  // (РµСЃР»Рё СЃРµС‚СЊ РјРµРґР»РµРЅРЅР°СЏ вЂ” С‡РµСЂРµР· 3 СЃ РѕС‚РґР°С‘Рј РєРѕРїРёСЋ, С‡С‚РѕР±С‹ РїСЂРёР»РѕР¶РµРЅРёРµ РЅРµ В«РІРёСЃРµР»РѕВ»)
+  // Свои файлы: сначала сеть (чтобы обновления приходили), без сети — сохранённая копия
+  // (если сеть медленная — через 3 с отдаём копию, чтобы приложение не «висело»)
   if (url.origin === location.origin) {
     const fromCache = () => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('./index.html'));
     const net = fetch(req).then(res => {
@@ -35,7 +35,7 @@ self.addEventListener('fetch', e => {
     }));
     return;
   }
-  // РЁСЂРёС„С‚ Nunito: СЃРѕС…СЂР°РЅСЏРµРј РѕРґРёРЅ СЂР°Р· Рё РґР°Р»СЊС€Рµ Р±РµСЂС‘Рј РёР· РїР°РјСЏС‚Рё
+  // Шрифт Nunito: сохраняем один раз и дальше берём из памяти
   if (/fonts\.(googleapis|gstatic)\.com$/.test(url.hostname)) {
     e.respondWith(caches.match(req).then(hit => hit || fetch(req).then(res => {
       const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); return res;
